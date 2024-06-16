@@ -1,0 +1,103 @@
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
+}
+
+/* 
+* Header Style
+*/
+
+header {
+    padding: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
+    color: #030303;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    font-size: 48px;
+}
+
+/* 
+* Style for Link References
+* 
+* Pink Highlight on hover
+*/
+
+a {
+    color: #030303;
+    text-decoration: none;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+p {
+    font-size: 20px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50vh;
+}
+
+.column {
+    flex: 1;
+    padding: 5px;
+}
+
+/* 
+* Footer Style
+*/
+
+footer {
+    padding: 30px;
+    clear: both;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+}
+
+footer h2 {
+    font-size: 20px;
+}
+
+/* Responsive Design 
+* 
+* The @media rule is used in media queries to apply different 
+* styles for different media types/devices
+*/
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 36px;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .major-project img {
+        width: 80%; /* Adjust width for smaller screens */
+    }
+
+    .other-projects section {
+        flex: 1 1 100%; /* Full width on smaller screens */
+    }
+
+    .center {
+        width: 80%;
+    }
+}
