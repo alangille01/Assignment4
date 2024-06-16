@@ -12,20 +12,24 @@
         <h1>Alexis Langille's Blog</h1>
         <nav>
     </header>
-    <form>
+    <form class="center" id="blogPost">
         <p>
-            <label>Username : <input type="text" /></label>
+            <label for="username">Username : <input type="text" /></label>
         </p>
         <p>
-            <label>Title : <input type="text" /></label>
+            <label for="title">Title : <input type="text" /></label>
         </p>     
         <p>
-            <label>Content : <input type="textarea" /></label>
+            <label for="content">Content : </label>
+            <textarea id="Content" name="Content" rows="4" cols="50"></textarea><br><br>
         </p>  
         <p>
+            <a href="blog.html">
             <input type = "submit" name = "submit" value = "Submit" />
+        </a>
         </p>
      </form>
+     <script src="./assets/js/form.js"></script>
     <footer>
         <h2>Made with ❤️️ by Alexis Langille</h2>
         <h2><a href="https://alangille01.github.io/Assignment2/">See My Personal Portfolio</a></h2>
