@@ -139,6 +139,11 @@ body.dark-mode .btn-primary:hover {
 }
 
 body.dark-mode footer {
-    background-color: #333;
+    background-color: #333 !important; /* Use !important if necessary to override other styles */
+    color: #f0f0f0;
+}
+
+body.dark-mode #blogContent {
+    background-color: #333 !important; /* Ensure blog content background changes */
     color: #f0f0f0;
 }
