@@ -1,3 +1,4 @@
+/* Default styles */
 * {
     box-sizing: border-box;
     padding: 0;
@@ -6,32 +7,23 @@
 
 body {
     background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
+    color: #030303;
 }
-
-/* 
-* Header Style
-*/
 
 header {
     padding: 20px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
     color: #030303;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    background: linear-gradient(106.5deg, rgba(255, 215, 185, 0.91) 23%, rgba(223, 159, 247, 0.8) 93%);
 }
 
 header h1 {
     font-size: 48px;
 }
-
-/* 
-* Style for Link References
-* 
-* Pink Highlight on hover
-*/
 
 a {
     color: #030303;
@@ -50,6 +42,7 @@ p {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    width: 50vh;
 }
 
 .column {
@@ -64,7 +57,6 @@ form {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
-    margin-top: 20px;
 }
 
 form label {
@@ -74,32 +66,25 @@ form label {
 }
 
 form input[type="text"],
+form input[type="email"],
 form textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
 }
-
-/* 
-* Footer Style
-*/
 
 footer {
     padding: 30px;
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
+    background-color: #f8f9fa; /* Bootstrap light color */
+    color: #030303;
 }
 
 footer h2 {
     font-size: 20px;
 }
 
-/* Responsive Design 
-* 
-* The @media rule is used in media queries to apply different 
-* styles for different media types/devices
-*/
 @media (max-width: 768px) {
     header h1 {
         font-size: 36px;
@@ -110,7 +95,50 @@ footer h2 {
         gap: 10px;
     }
 
+    .major-project img {
+        width: 80%;
+    }
+
+    .other-projects section {
+        flex: 1 1 100%;
+    }
+
     .center {
         width: 80%;
     }
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: linear-gradient(106.5deg, rgba(40, 40, 40, 0.91) 23%, rgba(20, 20, 20, 0.8) 93%);
+    color: #f0f0f0;
+}
+
+body.dark-mode header {
+    background: linear-gradient(106.5deg, rgba(40, 40, 40, 0.91) 23%, rgba(20, 20, 20, 0.8) 93%);
+    color: #f0f0f0;
+}
+
+body.dark-mode a {
+    color: #f0f0f0;
+}
+
+body.dark-mode form {
+    background: #333;
+    color: #f0f0f0;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #555;
+    border-color: #444;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #666;
+    border-color: #555;
+}
+
+body.dark-mode footer {
+    background-color: #333;
+    color: #f0f0f0;
 }
