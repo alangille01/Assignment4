@@ -13,8 +13,11 @@ document.getElementById('blogPost').addEventListener('submit', function(event) {
         timestamp: new Date().toISOString()
     };
 
+    // store blog post in JSON string in localstorage
     let blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+    // most recent blogpost will be displated first
     blogPosts.unshift(blogPost);
     localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+    // switch to blog page
     window.location.href = 'blog.html';
 });
