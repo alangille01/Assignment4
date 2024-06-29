@@ -23,6 +23,7 @@ header {
 
 header h1 {
     font-size: 48px;
+    color: #030303;
 }
 
 a {
@@ -75,6 +76,10 @@ body.dark-mode header {
     color: #f0f0f0;
 }
 
+body.dark-mode header h1 {
+    color: #f0f0f0;
+}
+
 body.dark-mode a {
     color: #f0f0f0;
 }
@@ -91,7 +96,6 @@ body.dark-mode .btn-primary:hover {
 
 body.dark-mode footer {
     background-color: #333 !important;
-    /* Use !important if necessary to override other styles */
     color: #f0f0f0;
 }
 

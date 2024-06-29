@@ -7,6 +7,10 @@ form {
     width: 100%;
 }
 
+form h1 {
+    text-align:center;
+}
+
 form label {
     display: block;
     margin-bottom: 8px;

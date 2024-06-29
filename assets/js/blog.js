@@ -1,13 +1,17 @@
+// Event listener for when DOM is loaded
 document.addEventListener('DOMContentLoaded', function() {
+    // get data from localstorage
     const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
 
     const blogContent = document.getElementById('blogContent');
     blogContent.innerHTML = '';
 
+    // Display message is no blog posts found
     if (blogPosts.length === 0) {
         blogContent.innerHTML = '<p>No blog posts found.</p>';
     } else {
         blogPosts.forEach((post, index) => {
+            // Go through the array and create blog post element
             const postElement = document.createElement('div');
             postElement.className = 'blog-post mb-4';
             postElement.innerHTML = `
