@@ -3,16 +3,60 @@
 
 <head>
     <meta charset="UTF-8" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Alexis' Blog</title>
+    <title>Alexis' Blog - Posts</title>
 </head>
 
 <body>
-    <header>
+    <header class="bg-primary text-white text-center py-3">
         <h1>Alexis Langille's Blog</h1>
-        <nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Add your navigation items here -->
+        </nav>
     </header>
-    <footer>
+
+    <div class="container mt-5">
+        <div id="blogContent" class="bg-white p-5 rounded shadow">
+            <!-- Blog posts will be rendered here -->
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+
+            const blogContent = document.getElementById('blogContent');
+            blogContent.innerHTML = '';
+
+            if (blogPosts.length === 0) {
+                blogContent.innerHTML = '<p>No blog posts found.</p>';
+            } else {
+                blogPosts.forEach((post, index) => {
+                    const postElement = document.createElement('div');
+                    postElement.className = 'blog-post mb-4';
+                    postElement.innerHTML = `
+                        <h2>${post.title}</h2>
+                        <h4>by ${post.username}</h4>
+                        <p>${post.content}</p>
+                        <small>${new Date(post.timestamp).toLocaleString()}</small>
+                    `;
+                    blogContent.appendChild(postElement);
+
+                    // Add a horizontal line except after the last post
+                    if (index < blogPosts.length - 1) {
+                        const hr = document.createElement('hr');
+                        blogContent.appendChild(hr);
+                    }
+                });
+            }
+        });
+    </script>
+
+    <footer class="bg-light text-center py-4 mt-5">
         <h2>Made with ❤️️ by Alexis Langille</h2>
         <h2><a href="https://alangille01.github.io/Assignment2/">See My Personal Portfolio</a></h2>
         <h3>Copyright 2024.</h3>
