@@ -17,4 +17,6 @@ Dark Mode
 
 
 Sample Local Storage Entry
+
+
 <img width="467" alt="image" src="https://github.com/alangille01/Assignment4/assets/166338216/caedf484-e722-4d99-95b1-f3c53e2b5359">
