@@ -1,85 +1,114 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head>
-    <meta charset="UTF-8" />
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-cHgq+O7k4UjHv5uYNKuU7mW4l93UyMPr7zkJPl9Md6/Mi7Zg3F4Z9T3yPEgUaNE0ItFJmL4v99aE5D4PjUGL8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Alexis' Blog - Posts</title>
-</head>
+    <head>
+        <meta charset="UTF-8" />
+        <link
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+            rel="stylesheet">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/blog.css">
+        <link rel="stylesheet" href="./assets/css/for.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<body>
-    <header class="bg-primary text-white text-center py-3">
-        <h1>Alexis Langille's Blog</h1>
-        <button class="btn btn-outline-secondary ml-auto" id="themeToggle">
-            <i class="fas fa-sun"></i> <!-- Sun icon for light mode -->
-            <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
-            Toggle Dark Mode
-        </button>
-    </header>
+        <title>Alexis' Blog - Posts</title>
+    </head>
 
-    <div class="container mt-5">
-        <button class="btn btn-secondary mb-3" onclick="window.location.href='index.html'">Back</button>
-        <div id="blogContent" class="bg-white p-5 rounded shadow">
-            <!-- Blog posts will be rendered here -->
+    <body>
+        <header class="bg-primary text-white text-center py-3">
+            <h1>Alexis Langille's Blog</h1>
+            <button class="btn btn-outline-secondary ml-auto" id="themeToggle">
+                <i class="fas fa-sun"></i> <!-- Sun icon for light mode -->
+                <i class="fas fa-moon"></i> <!-- Moon icon for dark mode -->
+                Toggle Dark Mode
+            </button>
+        </header>
+
+        <div class="container mt-5">
+            <button class="btn btn-secondary mb-3"
+                onclick="window.location.href='index.html'">Back</button>
+            <div id="blogContent" class="bg-white p-5 rounded shadow">
+                <!-- Blog posts will be rendered here -->
+            </div>
         </div>
-    </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-        // Handle loading blog posts
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+    const blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
 
-            const blogContent = document.getElementById('blogContent');
-            blogContent.innerHTML = '';
+    const blogContent = document.getElementById('blogContent');
+    blogContent.innerHTML = '';
 
-            if (blogPosts.length === 0) {
-                blogContent.innerHTML = '<p>No blog posts found.</p>';
-            } else {
-                blogPosts.forEach((post, index) => {
-                    const postElement = document.createElement('div');
-                    postElement.className = 'blog-post mb-4';
-                    postElement.innerHTML = `
-                        <h2>${post.title}</h2>
-                        <h4>by ${post.username}</h4>
-                        <p>${post.content}</p>
-                        <small>${new Date(post.timestamp).toLocaleString()}</small>
-                    `;
-                    blogContent.appendChild(postElement);
+    if (blogPosts.length === 0) {
+        blogContent.innerHTML = '<p>No blog posts found.</p>';
+    } else {
+        blogPosts.forEach((post, index) => {
+            const postElement = document.createElement('div');
+            postElement.className = 'blog-post mb-4';
+            postElement.innerHTML = `
+                <h2>${post.title}</h2>
+                <h4>by ${post.username}</h4>
+                <p>${post.content}</p>
+                <small>${new Date(post.timestamp).toLocaleString()}</small>
+            `;
+            blogContent.appendChild(postElement);
 
-                    // Add a horizontal line except after the last post
-                    if (index < blogPosts.length - 1) {
-                        const hr = document.createElement('hr');
-                        blogContent.appendChild(hr);
-                    }
-                });
+            // Add a horizontal line except after the last post
+            if (index < blogPosts.length - 1) {
+                const hr = document.createElement('hr');
+                blogContent.appendChild(hr);
             }
-
-            // Load theme on page load
-            const savedTheme = localStorage.getItem('theme') || 'light';
-            if (savedTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-            }
-
-            // Handle theme toggle
-            document.getElementById('themeToggle').addEventListener('click', function() {
-                document.body.classList.toggle('dark-mode');
-                const currentMode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-                localStorage.setItem('theme', currentMode);
-            });
         });
+    }
+
+    // Load theme on page load
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+    }
+
+    // Update theme toggle button icon based on saved theme
+    updateThemeToggleIcon(savedTheme);
+
+    // Handle theme toggle
+    document.getElementById('themeToggle').addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+        const currentMode = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
+        localStorage.setItem('theme', currentMode);
+        updateThemeToggleIcon(currentMode);
+    });
+
+    // Function to update theme toggle button icon
+    function updateThemeToggleIcon(themeMode) {
+        const sunIcon = document.querySelector('#themeToggle .fa-sun');
+        const moonIcon = document.querySelector('#themeToggle .fa-moon');
+
+        if (themeMode === 'dark') {
+            sunIcon.style.display = 'none';
+            moonIcon.style.display = 'inline-block';
+        } else {
+            sunIcon.style.display = 'inline-block';
+            moonIcon.style.display = 'none';
+        }
+    }
+});
+
     </script>
 
-    <footer class="bg-light text-center py-4 mt-5">
-        <h2>Made with ❤️️ by Alexis Langille</h2>
-        <h2><a href="https://alangille01.github.io/Assignment2/">See My Personal Portfolio</a></h2>
-        <h3>Copyright 2024.</h3>
-    </footer>
-</body>
+        <footer class="bg-light text-center py-4 mt-5">
+            <h2>Made with ❤️️ by Alexis Langille</h2>
+            <h2><a href="https://alangille01.github.io/Assignment2/">See My
+                    Personal Portfolio</a></h2>
+            <h3>Copyright 2024.</h3>
+        </footer>
+    </body>
 
 </html>
