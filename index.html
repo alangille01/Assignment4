@@ -11,6 +11,9 @@
 <body>
     <header class="bg-primary text-white text-center py-3">
         <h1>Alexis Langille's Blog</h1>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!-- Add your navigation items here -->
+        </nav>
     </header>
 
     <div class="container mt-5">
@@ -35,6 +38,27 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./assets/js/form.js"></script>
+
+    <script>
+        document.getElementById('blogPost').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const title = document.getElementById('title').value;
+            const content = document.getElementById('Content').value;
+
+            const blogPost = {
+                username: username,
+                title: title,
+                content: content,
+                timestamp: new Date().toISOString()
+            };
+
+            let blogPosts = JSON.parse(localStorage.getItem('blogPosts')) || [];
+            blogPosts.unshift(blogPost);
+            localStorage.setItem('blogPosts', JSON.stringify(blogPosts));
+            window.location.href = 'blog.html';
+        });
+    </script>
 
     <footer class="bg-light text-center py-4 mt-5">
         <h2>Made with ❤️️ by Alexis Langille</h2>
