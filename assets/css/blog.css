@@ -1,0 +1,4 @@
+body.dark-mode #blogContent {
+    background-color: #333 !important; /* Ensure blog content background changes */
+    color: #f0f0f0;
+}

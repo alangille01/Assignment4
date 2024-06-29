@@ -50,39 +50,69 @@ p {
     padding: 5px;
 }
 
-form {
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-}
-
-form label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: bold;
-}
-
-form input[type="text"],
-form input[type="email"],
-form textarea {
-    width: 100%;
-    padding: 10px;
-}
-
 footer {
     padding: 30px;
     clear: both;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     text-align: center;
-    background-color: #f8f9fa; /* Bootstrap light color */
+    background-color: #f8f9fa;
+    /* Bootstrap light color */
     color: #030303;
 }
 
 footer h2 {
     font-size: 20px;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+    background: linear-gradient(106.5deg, rgba(40, 40, 40, 0.91) 23%, rgba(20, 20, 20, 0.8) 93%);
+    color: #f0f0f0;
+}
+
+body.dark-mode header {
+    background: linear-gradient(106.5deg, rgba(40, 40, 40, 0.91) 23%, rgba(20, 20, 20, 0.8) 93%);
+    color: #f0f0f0;
+}
+
+body.dark-mode a {
+    color: #f0f0f0;
+}
+
+body.dark-mode .btn-primary {
+    background-color: #555;
+    border-color: #444;
+}
+
+body.dark-mode .btn-primary:hover {
+    background-color: #666;
+    border-color: #555;
+}
+
+body.dark-mode footer {
+    background-color: #333 !important;
+    /* Use !important if necessary to override other styles */
+    color: #f0f0f0;
+}
+
+/* Hide sun icon by default */
+.dark-mode .fa-sun {
+    display: none;
+}
+
+/* Show sun icon in light mode */
+.dark-mode .fa-sun {
+    display: inline-block;
+}
+
+/* Hide moon icon by default */
+.dark-mode .fa-moon {
+    display: inline-block;
+}
+
+/* Show moon icon in dark mode */
+.dark-mode .fa-moon {
+    display: none;
 }
 
 @media (max-width: 768px) {
@@ -106,44 +136,4 @@ footer h2 {
     .center {
         width: 80%;
     }
-}
-
-/* Dark mode styles */
-body.dark-mode {
-    background: linear-gradient(106.5deg, rgba(40, 40, 40, 0.91) 23%, rgba(20, 20, 20, 0.8) 93%);
-    color: #f0f0f0;
-}
-
-body.dark-mode header {
-    background: linear-gradient(106.5deg, rgba(40, 40, 40, 0.91) 23%, rgba(20, 20, 20, 0.8) 93%);
-    color: #f0f0f0;
-}
-
-body.dark-mode a {
-    color: #f0f0f0;
-}
-
-body.dark-mode form {
-    background: #333;
-    color: #f0f0f0;
-}
-
-body.dark-mode .btn-primary {
-    background-color: #555;
-    border-color: #444;
-}
-
-body.dark-mode .btn-primary:hover {
-    background-color: #666;
-    border-color: #555;
-}
-
-body.dark-mode footer {
-    background-color: #333 !important; /* Use !important if necessary to override other styles */
-    color: #f0f0f0;
-}
-
-body.dark-mode #blogContent {
-    background-color: #333 !important; /* Ensure blog content background changes */
-    color: #f0f0f0;
 }
